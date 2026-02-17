@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# Virtual environment
+.venv/
+env/
+ENV/
+venv/
+
+# Django
+*.sqlite3
+*.db
+*.pot
+*.pyc
+*.mo
+*.log
+media/
+staticfiles/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Heroku / deployment
+*.pyc
