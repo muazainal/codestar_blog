@@ -10,6 +10,7 @@ __pycache__/
 dist/
 build/
 *.log
+env.py
 
 # Virtual environment
 .venv/
@@ -38,3 +39,4 @@ staticfiles/
 
 # Heroku / deployment
 *.pyc
+env.py
