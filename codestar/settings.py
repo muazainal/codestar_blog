@@ -14,6 +14,10 @@ import os
 from pathlib import Path
 import dj_database_url
 
+# Load env.py if exists (for local dev)
+if os.path.isfile('env.py'):
+    import env
+
 
 
 
@@ -26,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Use environment variable if available, else fallback for local dev
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-dev-key")
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -90,8 +94,17 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # 🔹 DEBUG: check if DATABASE_URL is loaded
 # print("DATABASE_URL =", os.environ.get("DATABASE_URL"))
 
+# DATABASES = {
+#     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+# }
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if not DATABASE_URL:
+    raise Exception("DATABASE_URL is not set. Check your env.py or terminal environment.")
+
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)
 }
 
 # Password validation
