@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1', '.codeinstitute-ide.net']
 
 # Application definition
 
@@ -152,6 +152,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    "Http://*.codeinstitute-ide.net/",
-    "Http://*.herokuapp.com"
+    "https://*.codeinstitute-ide.net",
+    "https://*.herokuapp.com"
 ]
